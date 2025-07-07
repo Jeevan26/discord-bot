@@ -42,4 +42,11 @@ client.on(Events.InteractionCreate, async interaction => {
     }
 });
 
-client.login(process.env.DISCORD_TOKEN); 
+client.on(Events.MessageCreate, async message => {
+    if (message.author.bot) return;
+    if (message.content.trim().toLowerCase() === 'hi' || message.content.trim().toLowerCase() === 'hello' || message.content.trim().toLowerCase() === 'hey') {
+        await message.reply('hOIIIIIII!!! :3');
+    }
+});
+
+client.login(process.env.TOKEN); 
